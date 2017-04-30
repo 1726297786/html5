@@ -1,39 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <script>
-		function saveStorage(id){  
-    		var data = document.getElementById(id).value;  
-    		var time = new Date().getTime();
-    		localStorage.setItem(time,data);  
-    		loadStorage('msg');  
-		}  
-		function loadStorage(id){  
-    		var result = '<table border="1">';  
-    		for(var i = 0;i < localStorage.length;i++){ 
-        		var key = localStorage.key(i);  
-        		var value = localStorage.getItem(key);  
-        		var date = new Date();  
-        		date.setTime(key);  
-        		var datestr = date.toGMTString();  
-        		result += '<tr><td>' + value + '</td><td>' + datestr + '</td></tr>';  
-    		}  
-    result += '</table>';  
-    var target = document.getElementById(id);  
-    target.innerHTML = result;   
-		}  
-		function clearStorage(){  
-    		localStorage.clear();  
-    		alert("全部数据被清除。");  
-    		loadStorage('msg');  
-		} 
+
 </script>
 <header>
-	<h1>简单web留言本</h1>
-	<textarea rows="10" cols="60" id="memo"></textarea><br>
-	<input type="button" value="添加"onclick="saveStorage('memo');">
-	<input type="button" value="全部删除" onclick="clearStorage()">
-	</hr>
-	<p id="msg"></p>
+	<video src="E:\东京食尸鬼\第一季\[MWBK][Tokyo Ghoul √A][01][GB][720P][MP4]\[MWBK][Tokyo Ghoul √A][01][GB][720P][MP4].mp4"></video>
 </header>	
 <article style="line-height: 30px; font-weight: bold;">
 	<form action="#" method="get" id="forms"oninput="x.value=parseInt(a.value)+parseInt(b.value)">
