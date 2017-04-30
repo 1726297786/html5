@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script>
+		function saveStorage(id){  
+    		var data = document.getElementById(id).value;  
+    		var time = new Date().getTime();
+    		localStorage.setItem(time,data);  
+    		loadStorage('msg');  
+		}  
+		function loadStorage(id){  
+    		var result = '<table border="1">';  
+    		for(var i = 0;i < localStorage.length;i++){ 
+        		var key = localStorage.key(i);  
+        		var value = localStorage.getItem(key);  
+        		var date = new Date();  
+        		date.setTime(key);  
+        		var datestr = date.toGMTString();  
+        		result += '<tr><td>' + value + '</td><td>' + datestr + '</td></tr>';  
+    		}  
+    result += '</table>';  
+    var target = document.getElementById(id);  
+    target.innerHTML = result;   
+		}  
+		function clearStorage(){  
+    		localStorage.clear();  
+    		alert("全部数据被清除。");  
+    		loadStorage('msg');  
+		} 
+</script>
+<header>
+	<h1>简单web留言本</h1>
+	<textarea rows="10" cols="60" id="memo"></textarea><br>
+	<input type="button" value="添加"onclick="saveStorage('memo');">
+	<input type="button" value="全部删除" onclick="clearStorage()">
+	</hr>
+	<p id="msg"></p>
+</header>	
+<article style="line-height: 30px; font-weight: bold;">
+	<form action="#" method="get" id="forms"oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+		0<input type="range" id="a" value="50">100+<input type="number" id="b" value="0">=<output name="x" for="a b"></output><br>
+		数量：<input type="number" name="number" min="1" max="100" step="2" formaction="#"formmethod="post" autofocus="autofocus"/><br>
+		邮箱：<input type="email" name="email" placeholder="请输入邮箱"/><br>
+		网址：<input type="url" name="url" placeholder="请输入网址"/><br>
+		电话：<input type="tel" name="tel" placeholder="输入电话" /><br>
+		滑动条：<input type="range" name="range" min="0" max="100" step="1" value="0" /><br>
+		时间：<input type="date" name="date" /><br>
+		颜色：<input type="color" name="color" /><br>
+		搜索功能：<input type="search" autocomplete="on" name="LOLS" list="LOL" results/>
+				<datalist id="LOL">
+					<option>无极剑圣</option>
+					<option>德邦总管</option>
+					<option>蛮族之王</option>
+					<option>德玛西亚之力</option>
+					<option>德玛西亚皇子</option>
+					<option>提莫队长</option>
+					<option>啦啦啦啦，德玛西亚</option>
+				</datalist>	
+	</form>
+	自我介绍：<textarea form="forms" style="height: 20px;"></textarea>
+	<input form="forms" type="submit" value="提交">
+</article>
